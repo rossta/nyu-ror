@@ -9,4 +9,13 @@ namespace :ror do
     puts "Done"
     system "ls #{dir}"
   end
+  
+  desc "Run all tests"
+  task :spec do
+    dirs = Dir.glob(File.join(File.dirname(__FILE__), "**", "test", "*test.rb"))
+    system "ruby #{dirs.join(' ')}"
+  end
 end
+
+desc "Run all tests"
+task :spec => ["ror:spec"]
