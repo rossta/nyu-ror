@@ -1,7 +1,7 @@
 $:.unshift File.join(File.dirname(__FILE__), "lib")
 require 'guess_num'
 
-max = ARGV.shift || 100
+max = (ARGV.shift || 100).to_i
 guess_num = GuessNum.new(max)
 
 puts guess_num.last_message
